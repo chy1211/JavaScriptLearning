@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function test(obj){
+        obj.hide();
+    }
+</script>
+<body>
+    <p>If you click me , I will dissapear.</p>
+    <p onclick="test($(this))">按我就消失</p>
+    <p onclick="test($(this))">按我也會消失</p>
+</body>
+</html>

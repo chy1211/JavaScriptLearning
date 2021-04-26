@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    let r = 1
+    $(document).ready(function () {
+        $('#cal').click(function (e) { 
+            console.log("'click' run successfully")
+            let aa = parseInt($("#aa").val());
+            console.log("aa =");
+            console.log(aa);
+            let bb = parseInt($("#bb").val());
+            console.log("bb =");
+            console.log(bb);
+            while(r!=0){
+                r=aa%bb;
+                aa=bb;
+                bb=r;
+            }
+            let ans = aa;
+            console.log("取最大公因數為")
+            console.log(ans)
+            $("#ans").text(ans);
+        });
+    });
+</script>
+<body>
+    A<input type="text" id="aa"><br>
+    B<input type="text" id="bb"><br>
+    <input type="button" value="取公因數" id="cal"><br>
+    最大公因數為:<div id="ans"></div>
+</body>
+</html>

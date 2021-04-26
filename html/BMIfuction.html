@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh_tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI計算機</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#cal").click(function (e) { 
+            let height = parseFloat($("#height").val());
+            let weight = parseFloat($("#weight").val());
+            console.log(height);
+            console.log(weight);
+            if (height==0&&weight==0){
+                bmi = getBMI();
+            }
+            else if(height>0&&weight==0){
+                bmi = getBMI(height,undefined);
+            }
+            else if (height==0&&weight>0){
+                bmi = getBMI(undefined,weight);
+            }
+            else{
+                bmi = getBMI(height, weight);
+            }
+            
+            if(bmi>24){
+                $("#bmi").css("color", "red");
+                $("#tf").text("體重過重");
+            }
+            else if(bmi<18.5){
+                $("#bmi").css("color", "red");
+                $("#tf").text("體重過輕");
+            }
+            else{
+                $("#bmi").css("color", "blue");
+                $("#tf").text("體重正常");
+            }
+            const bmi1 = Math.round(bmi * 100) / 100;
+            $("#bmi").text(bmi1);
+        });
+    });
+    function getBMI(height = 1.77 , weight = 55){
+        const bmi = weight / (height * height);
+        return bmi;
+    }
+</script>
+<body>
+    身高 : <input type="text" id="height">公尺<br>
+    體重 : <input type="text" id="weight">公斤<br>
+    BMI = <div id="bmi"></div>
+    <div id="tf"></div><br>
+    <button id="cal">計算</button>  
+</body>
+</html>

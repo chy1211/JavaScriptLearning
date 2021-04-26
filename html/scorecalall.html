@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    let chi = new Array();
+    let eng = new Array();
+    let mat = new Array();
+    let to = new Array();
+    let avg = new Array();
+    let sum1 = 0;
+    let sum2 = 0;
+    let sum3 = 0;
+    let avg4 = 0;
+    let avg5 = 0;
+    let tot = 0;
+    $(document).ready(function () {
+        $('#cal').click(function (e) { 
+            $('input[id=chi]').each(function (index, element) {
+                chi[index]=parseInt($(element).val());            
+            });
+            $('input[id=eng]').each(function (index, element) {
+                eng[index]=parseInt($(element).val());            
+            });
+            $('input[id=mat]').each(function (index, element) {
+                mat[index]=parseInt($(element).val());            
+            });
+        console.log("'click' run successfully");    
+        for (let i = 0 ; i<chi.length;i++){
+            sum1 += chi[i];
+        }
+        for (let i = 0 ; i<eng.length;i++){
+            sum2 += eng[i];
+        }
+        for (let i = 0 ; i<mat.length;i++){
+            sum3 += mat[i];
+            console.log(i);
+        }
+        console.log("[chi]sum=");
+        console.log(sum1);
+        const avg1 = sum1/chi.length;
+        console.log("[chi]avg=");
+        console.log(avg1);
+        $("#avg1").val(avg1);
+        console.log("[eng]sum=");
+        console.log(sum2);
+        const avg2 = sum2/eng.length;
+        console.log("[eng]avg=");
+        console.log(avg2);
+        $("#avg2").val(avg2);
+        console.log("[mat]sum=");
+        console.log(sum3);
+        const avg3 = sum3/mat.length;
+        console.log("[mat]avg=");
+        console.log(avg3);
+        $("#avg3").val(avg3);
+        for (let i = 0 ; i<mat.length;i++){
+            to[i] = chi[i]+eng[i]+mat[i];
+        }
+        $("#to1").val(to[0]);
+        $("#to2").val(to[1]);
+        $("#to3").val(to[2]);
+        $("#to4").val(to[3]);
+        $("#to5").val(to[4]);
+        for (let i = 0 ; i<mat.length;i++){
+            avg4 = avg4+to[i];
+        }
+        avg4/=to.length;
+        $("#avg4").val(avg4);
+        const a1vg = to[0]/3;
+        const a2vg = to[1]/3;
+        const a3vg = to[2]/3;
+        const a4vg = to[3]/3;
+        const a5vg = to[4]/3;
+        $("#a1vg").val(a1vg);
+        $("#a2vg").val(a2vg);
+        $("#a3vg").val(a3vg);
+        $("#a4vg").val(a4vg);
+        $("#a5vg").val(a5vg);
+        avg5=a1vg+a2vg+a3vg+a4vg+a5vg;
+        console.log(avg5);
+        avg5/=to.length;
+        $("#avg5").val(avg5);
+        console.log(avg5);
+        });
+    });
+</script>
+<body>
+    <input type="text" id="text" value="編號"><input type="text" id="text" value="國文"><input type="text" id="text" value="英文"><input type="text" id="text" value="數學"><input type="text" id="text" value="總分"><input type="text" id="text" value="平均"><br>
+    <input type="text" id="text" value="1"><input type="text" id="chi" value="60"><input type="text" id="eng" value="60"><input type="text" id="mat" value="60"><input type="text" id="to1"><input type="text" id="a1vg"><br>
+    <input type="text" id="text" value="2"><input type="text" id="chi" value="70"><input type="text" id="eng" value="60"><input type="text" id="mat" value="60"><input type="text" id="to2"><input type="text" id="a2vg"><br>
+    <input type="text" id="text" value="3"><input type="text" id="chi" value="50"><input type="text" id="eng" value="60"><input type="text" id="mat" value="60"><input type="text" id="to3"><input type="text" id="a3vg"><br>
+    <input type="text" id="text" value="4"><input type="text" id="chi" value="40"><input type="text" id="eng" value="60"><input type="text" id="mat" value="60"><input type="text" id="to4"><input type="text" id="a4vg"><br>
+    <input type="text" id="text" value="5"><input type="text" id="chi" value="30"><input type="text" id="eng" value="60"><input type="text" id="mat" value="60"><input type="text" id="to5"><input type="text" id="a5vg"><br>
+    <input type="text" id="text" value="平均"><input type="text" id="avg1"><input type="text" id="avg2"><input type="text" id="avg3"><input type="text" id="avg4"><input type="text" id="avg5"><br>
+    <input type="button" value="計算" id="cal"><br>
+</body>
+</html>

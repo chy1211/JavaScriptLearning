@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成績計算機</title>
+    <style>
+        div{
+            display: inline;
+        }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#cal').click(function (e) { 
+            console.log("'click' run successfully")
+            let ch = parseFloat($("#ch").val());
+            console.log("國文成績 =")
+            console.log(ch)
+            let eng = parseFloat($("#eng").val());
+            console.log("英文成績 =")
+            console.log(eng)
+            let math = parseFloat($("#math").val());
+            console.log("數學成績 =")
+            console.log(math)
+            let score = ch + eng + math;
+            console.log("總成績 =")
+            console.log(score)
+            let avg = score/3
+            if(avg<60){
+                $("#avg").css("color", "red");
+            }
+            else{
+                $("#avg").css("color", "blue");
+            }
+            $("#avg").text(avg);
+            console.log("平均 =")
+            console.log(avg)
+        });
+    });
+</script>
+<body>
+    國文<input type="text" id="ch"><br>
+    英文<input type="text" id="eng"><br>
+    數學<input type="text" id="math"><br>
+    平均 <div id="avg"></div><br>
+    <input type="button" value="計算" id="cal">
+</body>
+</html>

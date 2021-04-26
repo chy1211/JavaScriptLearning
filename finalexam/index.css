@@ -1,0 +1,11 @@
+.body {
+    background-color:#eee;
+    color:#fff;
+    font-size: 14px;
+}
+.container {
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    width: 800px;
+}

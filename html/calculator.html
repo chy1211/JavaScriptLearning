@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加法計算機</title>
+    <style>
+        div{
+            display: inline;
+        }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#cal').click(function (e) { 
+            console.log("'click' run successfully")
+            let op1 = parseFloat($("#op1").val());
+            console.log("op1 =")
+            console.log(op1)
+            let op2 = parseFloat($("#op2").val());
+            let ans = op1 + op2;
+            console.log("op2 =")
+            console.log(op2)
+            $("#ans").text(ans);
+            console.log("ans =")
+            console.log(ans);
+        });
+    });
+</script>
+<body>
+    <input type="text" id="op1">+<input type="text" id="op2">=<div id="ans"></div><br>
+    <input type="button" value="計算" id="cal">
+</body>
+</html>

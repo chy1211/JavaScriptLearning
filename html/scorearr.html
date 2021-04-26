@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    let score = new Array();
+    let sum = new Array();
+    let sum1 = new Array();
+    let sum2 = new Array();
+    let sum3 = new Array();
+    $(document).ready(function () {
+        $('#cal').click(function (e) { 
+            $("input[id=chi]").each(function(index,element) { 
+                 score[index] = new Array();
+                 score[index]["chi"] = parseInt($(element).val());
+            });
+            $("input[id=eng]").each(function(index,element) { 
+                 score[index]["eng"] = parseInt($(element).val());
+            });
+            $("input[id=mat]").each(function(index,element) { 
+                 score[index]["mat"] = parseInt($(element).val());
+            });
+            score.forEach(function(element,index){
+                sum1 += element["chi"];
+                sum2 += element["eng"];
+                sum3 += element["mat"];
+                sum[index] = element["chi"] + element["eng"] + element["mat"];
+            });
+    });
+</script>
+<body>
+    <input type="text" id="text" value="編號"><input type="text" id="text" value="國文"><input type="text" id="text" value="英文"><input type="text" id="text" value="數學"><input type="text" id="text" value="總分"><input type="text" id="text" value="平均"><br>
+    <input type="text" id="text" value="1"><input type="text" id="chi" value="60"><input type="text" id="eng" value="60"><input type="text" id="mat" value="60"><input type="text" id="to"><input type="text" id="avg"><br>
+    <input type="text" id="text" value="2"><input type="text" id="chi" value="70"><input type="text" id="eng" value="60"><input type="text" id="mat" value="60"><input type="text" id="to"><input type="text" id="avg"><br>
+    <input type="text" id="text" value="3"><input type="text" id="chi" value="50"><input type="text" id="eng" value="60"><input type="text" id="mat" value="60"><input type="text" id="to"><input type="text" id="avg"><br>
+    <input type="text" id="text" value="4"><input type="text" id="chi" value="40"><input type="text" id="eng" value="60"><input type="text" id="mat" value="60"><input type="text" id="to"><input type="text" id="avg"><br>
+    <input type="text" id="text" value="5"><input type="text" id="chi" value="30"><input type="text" id="eng" value="60"><input type="text" id="mat" value="60"><input type="text" id="to"><input type="text" id="avg"><br>
+    <input type="text" id="text" value="平均"><input type="text" id="avg1"><input type="text" id="avg2"><input type="text" id="avg3"><input type="text" id="avg4"><input type="text" id="avg5"><br>
+    <input type="button" value="計算" id="cal"><br>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: inline;
+        }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#blue").click(function () { 
+            $("#blue").css("color", "blue");
+            console.log("'color' has change into 'blue'!")
+        });
+        $("#red").click(function () { 
+            $("#red").css("color", "red");
+            console.log("'color' has change into 'red'!")
+        });
+    });
+</script>
+<body>
+    <div id="blue">按我變藍色</div><div id="red">按我變紅色</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成績計算機</title>
+    <style>
+        div{
+            display: inline;
+        }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    ch = 0
+    eng = 0
+    math = 0
+    score =0
+    avg = 0
+    $(document).ready(function () {
+        $('#ch').keyup(function (e) { 
+            ch = parseFloat($("#ch").val());
+            console.log("國文成績 =")
+            console.log(ch)
+        });
+        $('#eng').keyup(function (e) { 
+            eng = parseFloat($("#eng").val());
+            console.log("英文成績 =")
+            console.log(eng)
+        });
+        $('#math').keyup(function (e) { 
+            math = parseFloat($("#math").val());
+            console.log("數學成績 =")
+            console.log(math)
+            console.log(ch)
+            console.log(eng)
+            score = ch + eng + math;
+            avg = score/3
+            if(avg<60){
+                $("#avg").css("color", "red");
+            }
+            else{
+                $("#avg").css("color", "blue");
+            }
+            $("#avg").text(avg);
+            console.log("平均 =")
+            console.log(avg)
+        });
+    });
+</script>
+<body>
+    國文<input type="text" id="ch"><br>
+    英文<input type="text" id="eng"><br>
+    數學<input type="text" id="math"><br>
+    平均 <div id="avg"></div><br>
+    <input type="button" value="計算" id="cal">
+</body>
+</html>

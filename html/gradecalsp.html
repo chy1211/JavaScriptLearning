@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成績計算機</title>
+    <style>
+        div{
+            display: inline;
+        }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#cal').click(function (e) { 
+            console.log("'click' run successfully");
+            const ch = parseFloat($("#ch").val());
+            console.log("國文成績 =");
+            console.log(ch);
+            const eng = parseFloat($("#eng").val());
+            console.log("英文成績 =");
+            console.log(eng);
+            const math = parseFloat($("#math").val());
+            console.log("數學成績 =");
+            console.log(math);
+            const score = ch + eng + math;
+            console.log("總成績 =");
+            console.log(score);
+            let avg = score/3;
+            const sp = $("input[id=sp]:checked").val();
+            console.log("是否為特殊生");
+            console.log(sp);
+            if(sp=="yes"){
+                avg+=10;
+            }
+            if(avg<60){
+                $("#avg").css("color", "red");
+            }
+            else{
+                $("#avg").css("color", "blue");
+            }
+            $("#avg").text(avg);
+            console.log("平均 =");
+            console.log(avg);
+        });
+    });
+</script>
+<body>
+    國文<input type="text" id="ch"><br>
+    英文<input type="text" id="eng"><br>
+    數學<input type="text" id="math"><br>
+    平均 <div id="avg"></div><br>
+    特殊生:<input type="radio" name="sp" id="sp"  value='yes'>是
+    <input type="radio" name="sp" id="sp" value='no'>否<br>
+    <input type="button" value="計算" id="cal">
+</body>
+</html>

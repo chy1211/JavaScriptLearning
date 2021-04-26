@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    let sc = new Array();
+    $(document).ready(function () {
+       
+       $('#cal').click(function (e) { 
+            $("input[id=sc]").each(function (index, element) {
+                sc[index]=parseInt($(element).val());
+            });
+            console.log("'click' run successfully");
+            let sum = 0;
+            for(let i=0;i<sc.length;i++){
+                sum += sc[i];
+            }
+            console.log("sum=");
+            console.log(sum);
+            const avg = sum/sc.length;
+            console.log("avg=");
+            console.log(avg);
+            if(avg<60){
+                $("#avg").css("color", "red");
+            }
+            else{
+                $("#avg").css("color", "blue");
+            }
+            $("#avg").text(avg);
+       });
+    });
+</script>
+<body>
+    計算全班平均<br>
+    1<input type="text" id="sc" value="60"><br>
+    2<input type="text" id="sc" value="70"><br>
+    3<input type="text" id="sc" value="50"><br>
+    4<input type="text" id="sc" value="40"><br>
+    5<input type="text" id="sc" value="30"><br>
+    <input type="button" value="計算" id="cal"><br>
+    班平均為<div id="avg"></div>
+</body>
+</html>

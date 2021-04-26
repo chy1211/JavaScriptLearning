@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: inline;
+        }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#cal').click(function (e) { 
+            console.log("'click' run successfully")
+            let op1 = parseInt($("#op1").text());
+            console.log("op1 =")
+            console.log(op1)
+            let op2 = parseInt($("#op2").text());
+            let ans = op1 + op2;
+            console.log("op2 =")
+            console.log(op2)
+            $("#ans").text(ans);
+            console.log("ans =")
+            console.log(ans);
+        });
+    });
+</script>
+<body>
+    <div id="op1">3</div>+<div id="op2">5</div><div id="cal">=</div><div id="ans"></div>
+</body>
+</html>
